@@ -1,0 +1,63 @@
+.container{
+  padding: 20rpx;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+.card{
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.label{
+  font-size: 28rpx;
+  color: #666;
+}
+.time{
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #409EFF;
+  margin: 15rpx 0;
+}
+.desc{
+  font-size: 26rpx;
+  color: #999;
+}
+.btn-group{
+  display: flex;
+  justify-content: center;
+  margin: 20rpx 0 40rpx;
+}
+.btn{
+  width: 320rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  margin: 0 10rpx;
+}
+.start{
+  background: #409EFF;
+  color: #fff;
+}
+.stop{
+  background: #ff4444;
+  color: #fff;
+}
+.tip-card{
+  background: #e8f4ff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.tip-icon{
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.tip-text{
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}

@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="userInfo">
+    <view class="avatar">👤</view>
+    <view class="name">护眼小助手</view>
+  </view>
+
+  <view class="menu">
+    <view class="item">学习记录</view>
+    <view class="item">护眼设置</view>
+    <view class="item">关于项目</view>
+    <view class="item red">清除缓存</view>
+  </view>
+</view>

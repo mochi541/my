@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="card">
+    <view class="title">本周学习总时长</view>
+    <view class="total">{{totalTime}}</view>
+  </view>
+
+  <view class="chart-card">
+    <view class="subtitle">近7日学习趋势</view>
+    <canvas type="2d" id="chart" class="chart"></canvas>
+  </view>
+
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view>{{item.date}}</view>
+      <view>{{item.time}}</view>
+    </view>
+  </view>
+</view>
