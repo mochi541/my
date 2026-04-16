@@ -1,13 +1,67 @@
-<view class="container">
-  <view class="card">
-    <view class="title">近7天用眼统计</view>
-    <view class="stats-item" wx:for="{{list}}" wx:key="index">
-      <text>{{item.date}}</text>
-      <text>{{item.studyMinutes}} 分钟</text>
+<view class="stats-container" wx:if="{{isParentVerified}}">
+  <!-- 时间范围切换 -->
+  <view class="time-range" style="display: flex; margin: 20rpx; gap: 20rpx;">
+    <button class="time-btn {{timeRange == 7 ? 'active' : ''}}" bindtap="switchTimeRange" data-type="7" 
+      style="flex: 1; padding: 15rpx; background: {{timeRange ==7 ? '#07c160' : '#fff'}}; color: {{timeRange ==7 ? '#fff' : '#333'}}; border: 1px solid #eee; border-radius: 8rpx;">
+      近7天
+    </button>
+    <button class="time-btn {{timeRange == 30 ? 'active' : ''}}" bindtap="switchTimeRange" data-type="30"
+      style="flex: 1; padding: 15rpx; background: {{timeRange ==30 ? '#07c160' : '#fff'}}; color: {{timeRange ==30 ? '#fff' : '#333'}}; border: 1px solid #eee; border-radius: 8rpx;">
+      近30天
+    </button>
+  </view>
+
+  <!-- 核心数据展示 -->
+  <view class="data-card" style="display: flex; justify-content: space-around; margin: 30rpx 20rpx; padding: 20rpx; background: #f5f5f5; border-radius: 8rpx;">
+    <view class="data-item">
+      <text class="data-label" style="font-size: 28rpx; color: #666; display: block; text-align: center;">日均用眼时长</text>
+      <text class="data-value" style="font-size: 40rpx; color: #07c160; display: block; text-align: center; margin-top: 10rpx;">{{avgDuration}} 分钟</text>
+    </view>
+    <view class="data-item">
+      <text class="data-label" style="font-size: 28rpx; color: #666; display: block; text-align: center;">休息完成率</text>
+      <text class="data-value" style="font-size: 40rpx; color: #1989fa; display: block; text-align: center; margin-top: 10rpx;">{{restCompletionRate}} %</text>
     </view>
   </view>
 
-  <view class="card">
-    <view class="stats-text">日均学习：{{avgTime}} 分钟</view>
+  <!-- 折线图：每日学习时长趋势（加固定高度） -->
+  <view class="chart-box" style="margin: 20rpx 0;">
+    <text class="chart-title" style="font-size: 32rpx; margin: 10rpx 20rpx; display: block; color: #333;">每日学习时长趋势</text>
+    <!-- 核心：固定高度400rpx，确保图表显示 -->
+    <ec-canvas id="lineChart" canvas-id="lineChart" ec="{{ecLine}}" style="width: 90%; height: 400rpx; margin: 0 auto;"></ec-canvas>
   </view>
+
+  <!-- 柱状图：每日休息完成率（加固定高度） -->
+  <view class="chart-box" style="margin: 20rpx 0;">
+    <text class="chart-title" style="font-size: 32rpx; margin: 10rpx 20rpx; display: block; color: #333;">每日休息完成率</text>
+    <ec-canvas id="barChart" canvas-id="barChart" ec="{{ecBar}}" style="width: 90%; height: 400rpx; margin: 0 auto;"></ec-canvas>
+  </view>
+
+  <!-- 功能按钮 -->
+  <view class="func-btn-group" style="display: flex; margin: 30rpx 20rpx; gap: 20rpx;">
+    <button class="func-btn" bindtap="exportData" 
+      style="flex: 1; padding: 20rpx; background: #fff; color: #07c160; border: 1px solid #07c160; border-radius: 8rpx;">
+      导出数据
+    </button>
+    <button class="func-btn" bindtap="shareData"
+      style="flex: 1; padding: 20rpx; background: #1989fa; color: #fff; border: none; border-radius: 8rpx;">
+      分享数据
+    </button>
+  </view>
+
+  <!-- 退出按钮 -->
+  <button class="exit-btn" bindtap="exitParentMode"
+    style="width: 90%; margin: 20rpx auto; display: block; padding: 20rpx; background: #f53f3f; color: #fff; border: none; border-radius: 8rpx;">
+    退出家长模式
+  </button>
+</view>
+
+<!-- 家长验证区域 -->
+<view class="verify-container" wx:else style="padding: 50rpx 20rpx;">
+  <text class="verify-title" style="font-size: 36rpx; color: #333; display: block; text-align: center; margin-bottom: 50rpx;">请输入家长密码查看数据</text>
+  <input type="password" placeholder="家长密码（默认123456）" bindinput="onPwdInput" value="{{inputPwd}}" 
+    style="width: 90%; margin: 0 auto; display: block; padding: 20rpx; border: 1px solid #eee; border-radius: 8rpx; font-size: 32rpx;" />
+  <button class="verify-btn" bindtap="verifyParentPwd"
+    style="width: 90%; margin: 30rpx auto; display: block; padding: 20rpx; background: #07c160; color: #fff; border: none; border-radius: 8rpx; font-size: 32rpx;">
+    家长验证查看数据
+  </button>
 </view>
