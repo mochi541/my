@@ -1,24 +1,40 @@
 <view class="container">
-  <!-- 学习时长卡片 -->
-  <view class="card">
-    <view class="label">今日学习时长</view>
-    <view class="time">{{formatTime(studyTime)}}</view>
-    <view class="desc">已专注 {{studyTimeText}}</view>
+  <camera wx:if="{{cameraAuth}}" class="camera"
+    device-position="front" flash="off" />
+
+  <view class="card time-box">
+    <text class="time-text">{{time}}</text>
+    <text class="tip">当前学习时长</text>
   </view>
 
-  <!-- 控制按钮 -->
   <view class="btn-group">
-    <button class="btn start" wx:if="{{!isRunning}}" bindtap="startTimer">
+    <!-- 正常状态 -->
+    <button wx:if="{{!isStudying && !lockStudy}}"
+      class="btn btn-primary"
+      hover-class="btn-hover"
+      bindtap="startStudy">
       开始学习
     </button>
-    <button class="btn stop" wx:else bindtap="stopTimer">
-      结束学习
+
+    <!-- 学习中 -->
+    <button wx:elif="{{isStudying}}"
+      class="btn btn-warn"
+      hover-class="btn-hover"
+      bindtap="stopStudy">
+      停止学习
+    </button>
+
+    <!-- 新增：强制休息锁定按钮 -->
+    <button wx:else disabled class="btn btn-disabled">
+      {{lockText}}
     </button>
   </view>
 
-  <!-- 护眼提示 -->
-  <view class="tip-card" bindtap="showEyeRule">
-    <view class="tip-icon">👁</view>
-    <view class="tip-text">20-20-20 护眼法则：每学习20分钟，远眺20秒</view>
+  <view class="card">
+    <text class="desc">今日护眼提醒：{{remindCount}} 次</text>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">
+    数据加载中...
   </view>
 </view>

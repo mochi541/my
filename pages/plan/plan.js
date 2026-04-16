@@ -1,10 +1,26 @@
 Page({
   data: {
-    taskList: [
-      { id: 1, title: "完成20分钟学习", done: true },
-      { id: 2, title: "做一次眼保健操", done: false },
-      { id: 3, title: "远眺放松3次", done: true },
-      { id: 4, title: "夜间不熬夜用眼", done: false },
-    ]
+    isPlaying: false
+  },
+
+  onLoad() {
+    this.audio = wx.createInnerAudioContext()
+    // 你可以自己替换成真实音频地址
+    this.audio.src = "https://www.soundjay.com/button/sounds/button-14.mp3"
+  },
+
+  // 播放/暂停
+  playAudio() {
+    if (this.data.isPlaying) {
+      this.audio.pause()
+      this.setData({ isPlaying: false })
+    } else {
+      this.audio.play()
+      this.setData({ isPlaying: true })
+    }
+  },
+
+  onUnload() {
+    if (this.audio) this.audio.destroy()
   }
 })

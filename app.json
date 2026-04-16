@@ -13,10 +13,10 @@
     "backgroundColor": "#F5F7FA"
   },
   "tabBar": {
-    "color": "#7A7E83",
+    "color": "#909399",
     "selectedColor": "#409EFF",
-    "borderStyle": "black",
     "backgroundColor": "#ffffff",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -37,6 +37,5 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "sitemapLocation": "sitemap.json"
 }

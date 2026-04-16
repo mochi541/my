@@ -1,13 +1,34 @@
 <view class="container">
-  <view class="userInfo">
-    <view class="avatar">👤</view>
-    <view class="name">护眼小助手</view>
+  <view class="card">
+    <view class="title">设置</view>
+    <view class="set-row">
+      <text>坐姿提醒</text>
+      <switch checked="{{postureRemind}}" bindchange="onPostureChange"/>
+    </view>
+    <view class="set-row">
+      <text>护眼提醒</text>
+      <switch checked="{{eyeRemind}}" bindchange="onEyeChange"/>
+    </view>
+    <view class="set-row">
+      <text>震动反馈</text>
+      <switch checked="{{vibrate}}" bindchange="onVibrateChange"/>
+    </view>
   </view>
 
-  <view class="menu">
-    <view class="item">学习记录</view>
-    <view class="item">护眼设置</view>
-    <view class="item">关于项目</view>
-    <view class="item red">清除缓存</view>
+  <view class="card">
+    <view class="title">显示设置</view>
+    <view class="set-row">
+      <text>字体大小</text>
+      <picker bindchange="changeFontSize" value="{{fontSize}}" range="{{fontList}}">
+        <view class="picker-text">{{fontList[fontSize]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title">家长监督</view>
+    <input class="password-input" password placeholder="请输入家长密码" value="{{inputPwd}}" bindinput="onInputPwd"/>
+    <button class="btn btn-primary" hover-class="btn-hover" bindtap="checkParentPwd">验证家长密码</button>
+    <view wx:if="{{isParentVerified}}" style="color:#67C23A;margin-top:20rpx;">✅ 已验证</view>
   </view>
 </view>

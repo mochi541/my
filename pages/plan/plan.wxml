@@ -1,16 +1,20 @@
 <view class="container">
   <view class="card">
-    <view class="title">每日护眼任务</view>
-    <view class="task" wx:for="{{taskList}}" wx:key="id">
-      <view>{{item.title}}</view>
-      <switch checked="{{item.done}}" disabled />
-    </view>
+    <view class="title">20-20-20 护眼规则</view>
+    <view class="desc">每用眼20分钟，远眺20英尺外至少20秒</view>
   </view>
 
   <view class="card">
-    <view class="title">护眼小知识</view>
-    <view class="tip">每20分钟远眺20秒</view>
-    <view class="tip">每天户外2小时</view>
-    <view class="tip">保持33cm阅读距离</view>
+    <view class="title">眼保健操</view>
+    <button class="btn btn-success" hover-class="btn-hover" bindtap="playAudio">
+      播放 / 暂停
+    </button>
+  </view>
+
+  <view class="card">
+    <view class="title">用眼习惯建议</view>
+    <view class="desc">• 学习45分钟休息10分钟</view>
+    <view class="desc">• 每天户外2小时以上</view>
+    <view class="desc">• 保持33cm阅读距离</view>
   </view>
 </view>

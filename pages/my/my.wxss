@@ -1,32 +1,33 @@
-.container{
+.container {
   padding: 20rpx;
   background: #f5f7fa;
   min-height: 100vh;
 }
-.userInfo{
-  background: #409EFF;
-  color: white;
-  padding: 40rpx;
+.card {
+  background: #fff;
   border-radius: 20rpx;
-  text-align: center;
-  margin-bottom: 30rpx;
-}
-.avatar{
-  font-size: 70rpx;
-  margin-bottom: 10rpx;
-}
-.name{
-  font-size: 32rpx;
-}
-.menu{
-  background: white;
-  border-radius: 20rpx;
-}
-.item{
   padding: 30rpx;
-  font-size: 28rpx;
-  border-bottom: 1rpx solid #eee;
+  margin-bottom: 20rpx;
 }
-.red{
-  color: #ff4444;
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.set-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+.picker-text {
+  color: #409EFF;
+  font-size: 28rpx;
+}
+.password-input {
+  border:1rpx solid #eee;
+  border-radius:10rpx;
+  padding:20rpx;
+  margin-bottom:20rpx;
 }

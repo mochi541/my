@@ -1,25 +1,79 @@
 {
+  "description": "青少年近视防控与健康学习助手小程序",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
+    "urlCheck": false,
     "es6": true,
-    "postcss": true,
-    "minified": true,
-    "uglifyFileName": false,
     "enhance": true,
-    "packNpmRelationList": [],
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "minifyWXML": true
+    "compileWorklet": false,
+    "localPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "miniprogram",
-  "simulatorPluginLibVersion": {},
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
+  "libVersion": "3.15.1",
   "appid": "wx78927c68adf7ec80",
+  "projectname": "近视防控学习助手",
+  "isGameTourist": false,
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
+    }
+  },
+  "cloudfunctionRoot": "cloudfunctions/",
+  "miniprogramRoot": "",
+  "simulatorPluginLibVersion": {},
   "editorSetting": {}
 }
