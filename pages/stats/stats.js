@@ -121,10 +121,11 @@ Page({
     });
   },
 
-  // 渲染折线图（原生wx-charts，无兼容问题）
+  // 渲染折线图（修复宽高比例+X轴显示）
   renderLineChart(width, categories, data) {
+    const systemInfo = wx.getSystemInfoSync();
+    const chartHeight = systemInfo.windowWidth / 750 * 400;
     if (this.data.lineChartInstance) {
-      // 更新已有图表
       this.data.lineChartInstance.updateData({
         categories,
         series: [{
@@ -134,11 +135,16 @@ Page({
         }]
       });
     } else {
-      // 初始化新图表
       this.data.lineChartInstance = new wxCharts({
         canvasId: 'lineChart',
         type: 'line',
         categories: categories,
+        xAxis: {
+          disableGrid: false,
+          fontColor: '#666',
+          fontSize: 11,
+          offsetY: 10
+        },
         series: [{
           name: '学习时长（分钟）',
           data: data,
@@ -147,22 +153,29 @@ Page({
         }],
         yAxis: {
           title: '时长（分钟）',
-          min: 0
+          min: 0,
+          gridColor: '#eee'
         },
         width: width,
-        height: 400, // 固定高度
+        height: chartHeight,
         title: {
           name: `${this.data.userName} 每日学习时长趋势`,
           fontSize: 14
+        },
+        extra: {
+          grid: {
+            bottom: 25
+          }
         }
       });
     }
   },
 
-  // 渲染柱状图（原生wx-charts）
+  // 渲染柱状图（修复宽高比例+X轴显示）
   renderBarChart(width, categories, data) {
+    const systemInfo = wx.getSystemInfoSync();
+    const chartHeight = systemInfo.windowWidth / 750 * 400;
     if (this.data.barChartInstance) {
-      // 更新已有图表
       this.data.barChartInstance.updateData({
         categories,
         series: [{
@@ -172,11 +185,16 @@ Page({
         }]
       });
     } else {
-      // 初始化新图表
       this.data.barChartInstance = new wxCharts({
         canvasId: 'barChart',
-        type: 'column', // 柱状图
+        type: 'column',
         categories: categories,
+        xAxis: {
+          disableGrid: false,
+          fontColor: '#666',
+          fontSize: 11,
+          offsetY: 10
+        },
         series: [{
           name: '完成率（%）',
           data: data,
@@ -186,13 +204,22 @@ Page({
         yAxis: {
           title: '完成率（%）',
           min: 0,
-          max: 100
+          max: 100,
+          gridColor: '#eee'
         },
         width: width,
-        height: 400,
+        height: chartHeight,
         title: {
           name: `${this.data.userName} 每日休息完成率`,
           fontSize: 14
+        },
+        extra: {
+          column: {
+            width: 20
+          },
+          grid: {
+            bottom: 25
+          }
         }
       });
     }

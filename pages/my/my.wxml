@@ -3,7 +3,7 @@
   <!-- 1. 用户信息卡片 -->
   <view class="card user-card">
     <view class="user-info" bindtap="getUserProfile">
-      <image class="avatar" src="{{userInfo.avatarUrl || '/images/damie.png'}}" mode="aspectFill"></image>
+      <image class="avatar" src="{{userInfo.avatarUrl || '/image/damie.png'}}" mode="aspectFill"></image>
       <view class="user-text">
         <text class="nickname">{{userInfo.nickName || '点击登录/授权'}}</text>
         <text class="tip">青少年近视防控助手</text>
