@@ -1,33 +1,47 @@
-.container {
-  padding: 20rpx;
-  background: #f5f7fa;
-  min-height: 100vh;
+/* pages/my/my.wxss */
+/* 引入全局样式（可选，确保样式统一） */
+@import "../../app.wxss";
+
+.page-container {
+  padding-bottom: 20rpx;
 }
-.card {
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 30rpx;
-  margin-bottom: 20rpx;
-}
-.title {
-  font-size: 32rpx;
-  font-weight: bold;
-  margin-bottom: 20rpx;
-}
-.set-row {
+
+/* 用户信息卡片 */
+.user-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20rpx 0;
-  font-size: 28rpx;
+  padding: 30rpx;
+}
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.user-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nickname {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+/* 设置项补充 */
+.setting-card .set-row {
+  border-bottom: 1rpx solid #F5F7FA;
+}
+.setting-card .set-row:last-child {
+  border-bottom: none;
 }
 .picker-text {
-  color: #409EFF;
   font-size: 28rpx;
+  color: #606266;
 }
-.password-input {
-  border:1rpx solid #eee;
-  border-radius:10rpx;
-  padding:20rpx;
-  margin-bottom:20rpx;
+
+/* 适配滑块样式 */
+slider {
+  width: 400rpx;
 }
